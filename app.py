@@ -7,10 +7,10 @@ import yfinance as yf
 
 
 
-data = pd.read_csv('C:\\Users\\user\\Desktop\\MSBA 350\\Lecture 1\\all_data_clean.csv')
+data = pd.read_csv('all_data_clean.csv')
 
 
-file_path = "C:\\Users\\user\\Desktop\\MSBA 350\\Lecture 1\\data.json"
+file_path = "data.json"
 
 with open(file_path, "r", encoding="utf-8") as file:
     jdata = json.load(file)  # Use json.load() for files
@@ -92,6 +92,8 @@ st.write('***')
 
 st.header('Lineplot of the Tickers Across the 10 Years')
 
+st.info('You can filter by tickers and date in the sidebar')
+
 data['Date'] = pd.to_datetime(data['Date'], errors='coerce')
 
 
@@ -120,15 +122,3 @@ fig.update_layout(title=f'{title} for Stocks')
 fig.update_yaxes(title=title)
 
 st.plotly_chart(fig)
-
-st.info('''
-    ##### before the stock price close for each day, blackrock was the highest
-
-##### blackrock was volatile across the years 2018 -2022
-
-##### there might be market insiders about the stock price affecting the fluctuation 
-
-##### future predictions from prof in articles ( sentiment anlysis) are impcating investors decision buying or selling causing this market insiders shit
-
-##### at the end of 2024 blackrock skyrocketed reaching 1000 per share making the gap huge
-''')
